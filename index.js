@@ -19,7 +19,7 @@ const trainModel = async () => {
   console.log("Entrenando modelo...");
 
   // Entrenar el modelo con los datos
-  await model.fit(xs, ys, { epochs: 250 });
+  await model.fit(xs, ys, { epochs: 1000 });
 
   if (outputDiv) {
     outputDiv.innerText = "Modelo preparado";
