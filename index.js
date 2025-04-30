@@ -7,8 +7,8 @@ model.add(tf.layers.dense({ units: 1, inputShape: [1] }));
 model.compile({ loss: "meanSquaredError", optimizer: "sgd" });
 
 // Generar algunos datos sintéticos para el entrenamiento (y = 2x - 1)
-const xs = tf.tensor2d([-1, 0, 1, 2, 3, 4], [6, 1]);
-const ys = tf.tensor2d([-3, -1, 1, 3, 5, 7], [6, 1]);
+const xs = tf.tensor2d([-6, -5, -4, -3, -2, -1, 0, 1, 2], [9, 1]);
+const ys = tf.tensor2d([-6, -4, -2, 0, 2, 4, 6, 8, 10], [9, 1]);
 
 const trainModel = async () => {
   const outputDiv = document.getElementById("micro-out-div");
@@ -19,7 +19,7 @@ const trainModel = async () => {
   console.log("Entrenando modelo...");
 
   // Entrenar el modelo con los datos
-  await model.fit(xs, ys, { epochs: 1000 });
+  await model.fit(xs, ys, { epochs: 350 });
 
   if (outputDiv) {
     outputDiv.innerText = "Modelo preparado";
